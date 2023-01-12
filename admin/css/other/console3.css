@@ -1,36 +1,79 @@
-.data-panel {
-	border-radius: 4px;
+body::-webkit-scrollbar {
+	display: none;
+}
+
+h2 {
+	font-weight: 600;
+	padding-bottom: 5px;
 	text-align: center;
 }
 
+.data-panel {
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+.mini-data-panel {
+	padding-top: 5px;
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.mini-data-panel:first-child {
+	border-bottom: #BBB 1px solid;
+}
+
+/* 设定数据板块的高度 */
 .data-panel>.layui-card-body {
 	height: 160px;
 }
 
-.data-panel layui-table {
-  margin: 0;
+/* 数据板块中的table表格，让其不超出板块 */
+.data-panel .layui-table {
+	margin: 0;
 }
-
 .data-panel th {
+	background-color: white;
   font-weight: 600;
 	text-align: center;
 }
 .data-panel td {
-	height: 28px;
+	height: 30px;
 }
-
 .hidden-overflow {
   max-height: 160px;
   overflow: auto;
 }
-
 .hidden-overflow::-webkit-scrollbar {
   display: none;
 }
+
+/* 大的数字，例如左列第一块上的总监控人数 */
 .big-number {
-	line-height: 60px;
+	line-height: 56px;
 	font-size: 29px;
-	border-right: 1px solid #eceff9;
+}
+/* 中等的数字，例如中间列最上方的职业危害预警人数 */
+.medium-number {
+	line-height: 40px;
+	font-size: 20px;
+}
+
+/* 将layui-col-space5的底部margin修改为0 */
+.layui-col-space5 {
+	margin-bottom: 0;
+}
+
+/* 矿洞地图 */
+.mine-map {
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.mine-map .layui-card-body {
+	height: 302px;
 }
 
 .data-panel-tips {
