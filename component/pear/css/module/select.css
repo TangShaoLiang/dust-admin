@@ -294,7 +294,7 @@ select[xm-select] {
 .xm-select-parent .xm-select-title div.xm-select-label>span {
 	position: relative;
 	padding: 2px 5px;
-	background-color: #5FB878;
+	background-color: #A67F78;
 	border-radius: 2px;
 	color: #FFF;
 	display: inline-block;
@@ -426,11 +426,11 @@ div[xm-select-skin=default] .xm-select-title div.xm-select-label>span i:before {
 }
 
 div[xm-select-skin=default] dl dd:not(.xm-dis-disabled) i {
-	border-color: #5FB878
+	border-color: #A67F78
 }
 
 div[xm-select-skin=default] dl dd.xm-select-this:not(.xm-dis-disabled) i {
-	color: #5FB878
+	color: #A67F78
 }
 
 div[xm-select-skin=default].xm-form-selected .xm-select,
@@ -439,27 +439,27 @@ div[xm-select-skin=default].xm-form-selected .xm-select:hover {
 }
 
 div[xm-select-skin=primary] .xm-select-title div.xm-select-label>span {
-	background-color: #5FB878!important;
+	background-color: #A67F78!important;
 	color: #FFF;
-	border: 1px solid #5FB878!important
+	border: 1px solid #A67F78!important
 }
 
 div[xm-select-skin=primary] .xm-select-title div.xm-select-label>span i {
-	background-color: #5FB878!important;
+	background-color: #A67F78!important;
 	color: #FFF
 }
 
 div[xm-select-skin=primary] dl dd:not(.xm-dis-disabled) i {
-	border-color: #5FB878!important
+	border-color: #A67F78!important
 }
 
 div[xm-select-skin=primary] dl dd.xm-select-this:not(.xm-dis-disabled) i {
-	color: #5FB878!important
+	color: #A67F78!important
 }
 
 div[xm-select-skin=primary].xm-form-selected .xm-select,
 div[xm-select-skin=primary].xm-form-selected .xm-select:hover {
-	border-color: #5FB878!important
+	border-color: #A67F78!important
 }
 
 div[xm-select-skin=normal] .xm-select-title div.xm-select-label>span {
@@ -632,12 +632,12 @@ div[xm-select-skin=danger].xm-form-selected .xm-select:hover {
 }
 
 div[xm-select-skin='default'] .xm-select-linkage li.xm-select-this span {
-	border-left-color: #5FB878;
-	color: #5FB878;
+	border-left-color: #A67F78;
+	color: #A67F78;
 }
 
 div[xm-select-skin='default'] .xm-select-linkage-group li:hover {
-	border-left-color: #5FB878;
+	border-left-color: #A67F78;
 }
 
 div[xm-select-skin='primary'] .xm-select-linkage li.xm-select-this span {
