@@ -1,10 +1,10 @@
 {
 	"logo": {
 		"title": "Pear Admin",
-		"image": "assetsimages/logo.png"
+		"image": "assets/images/logo.png"
 	},
 	"menu": {
-		"data": "assetsdata/menu.json",
+		"data": "assets/data/menu.json",
 		"method": "GET",
 		"accordion": true,
 		"collapse": false,
@@ -65,6 +65,6 @@
 		"footer": false
 	},
 	"header": {
-		"message": "assetsdata/message.json"
+		"message": "assets/data/message.json"
 	}
 }
