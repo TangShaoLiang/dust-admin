@@ -50,8 +50,8 @@
 	background-color: #f6ad55 !important;
 }
 .pear-btn-success {
-	border: 1px solid #36b368;
-	background-color: #36b368 !important;
+	border: 1px solid #A67F78;
+	background-color: #A67F78 !important;
 }
 
 .pear-btn[round] {
@@ -69,13 +69,13 @@
 }
 
 .pear-btn-success[plain] {
-	color: #36b368 !important;
+	color: #A67F78 !important;
 	background: #f0f9eb !important;
 }
 
 .pear-btn-success[plain]:hover {
 	color: white !important;
-	background-color: #36b368 !important
+	background-color: #A67F78 !important
 }
 
 .pear-btn-warming[plain] {

@@ -178,13 +178,13 @@ select[xm-select] {
 	height: 16px;
 	position: absolute;
 	top: 9px;
-	border: 1px solid #5FB878;
+	border: 1px solid #A67F78;
 	border-radius: 3px;
 	z-index: 2;
 }
 
 .xm-form-checkbox:hover>i {
-	border-color: #5FB878;
+	border-color: #A67F78;
 }
 
 .xm-form-checkbox>span {
@@ -220,7 +220,7 @@ select[xm-select] {
 
 .xm-select-parent dl dd.xm-select-this div i {
 	border: none;
-	color: #5FB878;
+	color: #A67F78;
 	font-size: 18px;
 }
 
