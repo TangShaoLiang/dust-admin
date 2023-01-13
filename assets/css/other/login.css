@@ -44,6 +44,17 @@
 	box-shadow: 0px 0px 2px 1px #993333 !important;
 }
 
+.login {
+	color: #fff;
+	border: none;
+}
+.remember-psw {
+	border: none;
+}
+
+
+
+
 .logo {
 	width: 60px !important;
 	margin-top: 10px !important;

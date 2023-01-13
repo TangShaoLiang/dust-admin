@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>控制后台</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="../../component/pear/css/pear.css" />
+		<link rel="stylesheet" href="../../assets/css/other/areaMonitor.css" />
+	</head>
+	<body class="pear-container">
+		<div>
+			<div class="layui-row layui-col-space10">
+				<!-- 左侧一列 -->
+				<div class="layui-col-xs12 layui-col-md3">
+					<!-- 1-1. 监管对象（大数字） -->
+					<div class="layui-card data-panel">
+						<div class="layui-card-header">监管对象</div>
+						<div class="layui-card-body">
+							<div class="layui-col-space5">
+								<div class="layui-col-xs6 layui-col-md6">
+									<div>监管矿企</div>
+									<div class="big-number fc-brown">5</div>
+									<div>监管点</div>
+									<div class="big-number fc-brown">26</div>
+								</div>
+								<div class="layui-col-xs6 layui-col-md6">
+									<div>监测矿井</div>
+									<div class="big-number fc-brown">6</div>
+									<div>监测工人</div>
+									<div class="big-number fc-brown">182</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 1-2. 矿井粉尘浓度排行（列表） -->
+					<div class="layui-card long-data-panel">
+						<div class="layui-card-header">矿井粉尘浓度排行</div>
+						<div class="layui-card-body">
+							<table class="layui-table" lay-skin="nob" lay-size="sm">
+								<thead>
+									<tr>
+										<th>排名</th>
+										<th>矿井</th>
+										<th>总粉尘</th>
+										<th>呼吸尘</th>
+									</tr> 
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- 中间一列 -->
+				<div class="layui-col-xs12 layui-col-md6">
+					<!-- 标题（煤矿名称） -->
+			<h2>矿山职业危害预警信息大数据中心</h2>
+					<!-- 2-1. 区域概览（矿井分布、矿井危险程度） -->
+					<div class="area-map echarts-map">
+					</div>
+					<!-- 2-2. 地图图例，危险数据 -->
+					<div class="layui-panel map-legend">
+						<div class="layui-row">
+							<div class="layui-col-xs2 layui-col-md2">
+								<span>高危矿井：</span><span class="medium-number fc-red">1</span>
+							</div>
+							<div class="layui-col-xs2 layui-col-md2">
+								<span>危险矿井：</span><span class="medium-number fc-yellow">1</span>
+							</div>
+							<div class="layui-col-xs2 layui-col-md2">
+								<span>安全矿井：</span><span class="medium-number fc-green">1</span>
+							</div>
+							<div class="layui-col-xs3 layui-col-md3">
+								<span>高危预警矿工：</span><span class="medium-number fc-red">21</span>
+							</div>
+							<div class="layui-col-xs3 layui-col-md3">
+								<span>危险预警矿工：</span><span class="medium-number fc-yellow">48</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 右边一列 -->
+				<div class="layui-col-xs12 layui-col-md3">
+					<!-- 3-1. 通知通告（列表） -->
+					<div class="layui-card data-panel">
+						<div class="layui-card-header">通知通告</div>
+						<div class="layui-card-body ">
+							<ul class="list hidden-overflow">
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+								<li>公告一</li>
+							</ul>
+						</div>
+					</div>
+					<!-- 3-2. 矿井高危人数排行（表格） -->
+					<div class="layui-card long-data-panel">
+						<div class="layui-card-header">矿井高危人数排行</div>
+						<div class="layui-card-body">
+							<table class="layui-table" lay-skin="nob" lay-size="sm">
+								<thead>
+									<tr>
+										<th>排名</th>
+										<th>矿井</th>
+										<th>高危人数</th>
+										<th>占比</th>
+									</tr> 
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>XX矿井</td>
+										<td>22.13</td>
+										<td>7.9</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+		<!--</div>-->
+		<script src="../../component/layui/layui.js"></script>
+		<script src="../../component/pear/pear.js"></script>
+		<script>
+			layui.use(['layer', 'echarts', 'element', 'count'], function() {
+				var $ = layui.jquery,
+					layer = layui.layer,
+					element = layui.element,
+					count = layui.count,
+					echarts = layui.echarts;
+
+				// 数字滚动动画，让数据从0逐渐变成440.34
+				count.up("value1", {
+					time: 4000,			// 用时
+					num: 440.34,		// 最终变成的数字
+					bit: 2,					// 看不懂
+					regulator: 50		// 
+				})
+
+				count.up("value2", {
+					time: 4000,
+					num: 236.30,
+					bit: 2,
+					regulator: 50
+				})
+
+				count.up("value3", {
+					time: 4000,
+					num: 634.43,
+					bit: 2,
+					regulator: 50
+				})
+
+				count.up("value4", {
+					time: 4000,
+					bit: 2,
+					num: 373.23,
+					regulator: 50
+				})
+
+
+				// 我的代码
+				// 人员实时分布（掘进面和采煤面）
+				// 掘进面
+				var echartsDriving = echarts.init(document.getElementById('echarts-driving'), 'walden');
+				var echartsWorking = echarts.init(document.getElementById('echarts-working'), 'walden');
+				var optionDriving = {
+					series: [
+						{
+							name: '掘进面人数统计',
+							type: 'pie',
+							radius: ['50%','60%'],
+							center: ['50%','50%'], 	// 偏移距离，默认50%,50%，即居中
+							label: {
+								position: 'center',
+								formatter: '{c}人',
+								fontSize: 16,
+							},
+							itemStyle: {
+								borderRadius: 4,
+								borderColor: '#fff',
+								borderWidth: 2
+							},
+							data: [
+								{ value: 3, itemStyle: {color: '#795548'}},//#6D4C41
+								{ value: 1, itemStyle: {color: '#fff'}}
+							]
+						}
+					]
+        };
+				echartsDriving.setOption(optionDriving);
+				// 采煤面
+				var optionWorking = {
+					series: [
+						{
+							name: '掘进面人数统计',
+							type: 'pie',
+							radius: ['50%','60%'],
+							label: {
+								position: 'center',
+								formatter: '{c}人',
+								fontSize: 16,
+							},
+							itemStyle: {
+								borderRadius: 4,
+								borderColor: '#fff',
+								borderWidth: 2
+							},
+							data: [
+								{ value: 3, itemStyle: {color: '#6A5852'}},
+								{ value: 1, itemStyle: {color: '#fff'}}
+							]
+						}
+					]
+        };
+				echartsWorking.setOption(optionWorking);
+
+
+				// 危险人员统计
+				var echartsPeople = echarts.init(document.getElementById('echarts-people'), 'walden');
+				var optionPeople = {
+					tooltip: {
+						trigger: 'item'
+					},
+					series: [
+						{
+							name: '危险人数统计',
+							type: 'pie',
+							radius: '80%',
+							itemStyle: {
+								borderColor: '#fff',
+								borderWidth: 2
+							},
+							data: [
+								{ value: 8, name: '安全', itemStyle: {color: '#009688'}},
+								{ value: 7, name: '中危', itemStyle: {color: '#FFB800'} },
+								{ value: 4, name: '高危', itemStyle: {color: '#FF5722'} }
+							],
+							emphasis: {
+								itemStyle: {
+									shadowBlur: 10,
+									shadowOffsetX: 0,
+									shadowColor: 'rgba(0, 0, 0, 0.5)'
+								}
+							}
+						}
+					]
+        };
+				echartsPeople.setOption(optionPeople);
+
+				// 粉尘与呼吸尘监测
+				var echartsDust = echarts.init(document.getElementById('echarts-dust'), 'walden');
+				// const colorList = ["#9E87FF", '#73DDFF', '#fe9a8b', '#F56948', '#9E87FF']
+				var optionDust = {
+					tooltip: {
+						trigger: 'axis'
+					},
+					legend: {
+						data: ['粉尘', '呼吸尘']
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						top: '15%',
+						bottom: '0%',
+						containLabel: true
+					},
+					xAxis: {
+						type: 'category',
+						boundaryGap: false,
+						data: ['10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [
+						{
+							name: '粉尘',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#B37D4E'},
+							data: [220, 182, 191, 234, 290, 330, 310]
+						},
+						{
+							name: '呼吸尘',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#F3AD4E'},
+							data: [120, 132, 101, 134, 90, 230, 210]
+						}
+					]
+				};
+				echartsDust.setOption(optionDust);
+				
+				// 报警类型统计
+				var echartsWarning = echarts.init(document.getElementById('echarts-warning'), 'walden');
+				var optionWarning = {
+					tooltip: {
+						trigger: 'item'
+					},
+					series: [
+						{
+							name: '危险人数统计',
+							type: 'pie',
+							radius: '80%',
+							itemStyle: {
+								borderColor: '#fff',
+								borderWidth: 2
+							},
+							data: [
+								{ value: 8, name: '温度', itemStyle: {color: '#984843'}},
+								{ value: 2, name: '湿度', itemStyle: {color: '#008FBF'}},
+								{ value: 1, name: '风速', itemStyle: {color: '#EAC67A'}},
+								{ value: 4, name: '噪声', itemStyle: {color: '#637277'}}
+							],
+							emphasis: {
+								itemStyle: {
+									shadowBlur: 10,
+									shadowOffsetX: 0,
+									shadowColor: 'rgba(0, 0, 0, 0.5)'
+								}
+							}
+						}
+					]
+        };
+				echartsWarning.setOption(optionWarning);
+
+
+				// 四项物理因素监测（温湿度、风速、噪声）
+				var echartsElement = echarts.init(document.getElementById('echarts-element'), 'walden');
+				var optionElement = {
+					tooltip: {
+						trigger: 'axis'
+					},
+					legend: {
+						data: ['温度', '湿度', '风速', '噪音']
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						top: '15%',
+						bottom: '0%',
+						containLabel: true
+					},
+					xAxis: {
+						type: 'category',
+						boundaryGap: false,
+						data: ['10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [
+						{
+							name: '温度',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#984843'},
+							data: [120, 132, 101, 134, 90, 230, 210]
+						},
+						{
+							name: '湿度',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#008FBF'},
+							data: [220, 182, 191, 234, 290, 330, 310]
+						},
+						{
+							name: '风速',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#EAC67A'},
+							data: [150, 232, 201, 154, 190, 330, 410]
+						},
+						{
+							name: '噪音',
+							type: 'line',
+							showSymbol: false,
+							itemStyle: {color: '#637277'},
+							data: [320, 332, 301, 334, 390, 330, 320]
+						}
+					]
+				};
+				echartsElement.setOption(optionElement);
+
+				// 当屏幕尺寸变化时，让各个echarts图重新调整大小以适应屏幕尺寸的变化
+				window.onresize = function() {
+					echartsDriving.resize();
+					echartsWorking.resize();
+					echartsPeople.resize();
+					echartsDust.resize();
+					echartsWarning.resize();
+					echartsElement.resize();
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -178,13 +178,13 @@ select[xm-select] {
 	height: 16px;
 	position: absolute;
 	top: 9px;
-	border: 1px solid #A67F78;
+	border: 1px solid #5FB878;
 	border-radius: 3px;
 	z-index: 2;
 }
 
 .xm-form-checkbox:hover>i {
-	border-color: #A67F78;
+	border-color: #5FB878;
 }
 
 .xm-form-checkbox>span {
@@ -220,7 +220,7 @@ select[xm-select] {
 
 .xm-select-parent dl dd.xm-select-this div i {
 	border: none;
-	color: #A67F78;
+	color: #5FB878;
 	font-size: 18px;
 }
 
@@ -294,7 +294,7 @@ select[xm-select] {
 .xm-select-parent .xm-select-title div.xm-select-label>span {
 	position: relative;
 	padding: 2px 5px;
-	background-color: #A67F78;
+	background-color: #5FB878;
 	border-radius: 2px;
 	color: #FFF;
 	display: inline-block;
@@ -426,11 +426,11 @@ div[xm-select-skin=default] .xm-select-title div.xm-select-label>span i:before {
 }
 
 div[xm-select-skin=default] dl dd:not(.xm-dis-disabled) i {
-	border-color: #A67F78
+	border-color: #5FB878
 }
 
 div[xm-select-skin=default] dl dd.xm-select-this:not(.xm-dis-disabled) i {
-	color: #A67F78
+	color: #5FB878
 }
 
 div[xm-select-skin=default].xm-form-selected .xm-select,
@@ -439,27 +439,27 @@ div[xm-select-skin=default].xm-form-selected .xm-select:hover {
 }
 
 div[xm-select-skin=primary] .xm-select-title div.xm-select-label>span {
-	background-color: #A67F78!important;
+	background-color: #5FB878!important;
 	color: #FFF;
-	border: 1px solid #A67F78!important
+	border: 1px solid #5FB878!important
 }
 
 div[xm-select-skin=primary] .xm-select-title div.xm-select-label>span i {
-	background-color: #A67F78!important;
+	background-color: #5FB878!important;
 	color: #FFF
 }
 
 div[xm-select-skin=primary] dl dd:not(.xm-dis-disabled) i {
-	border-color: #A67F78!important
+	border-color: #5FB878!important
 }
 
 div[xm-select-skin=primary] dl dd.xm-select-this:not(.xm-dis-disabled) i {
-	color: #A67F78!important
+	color: #5FB878!important
 }
 
 div[xm-select-skin=primary].xm-form-selected .xm-select,
 div[xm-select-skin=primary].xm-form-selected .xm-select:hover {
-	border-color: #A67F78!important
+	border-color: #5FB878!important
 }
 
 div[xm-select-skin=normal] .xm-select-title div.xm-select-label>span {
@@ -632,12 +632,12 @@ div[xm-select-skin=danger].xm-form-selected .xm-select:hover {
 }
 
 div[xm-select-skin='default'] .xm-select-linkage li.xm-select-this span {
-	border-left-color: #A67F78;
-	color: #A67F78;
+	border-left-color: #5FB878;
+	color: #5FB878;
 }
 
 div[xm-select-skin='default'] .xm-select-linkage-group li:hover {
-	border-left-color: #A67F78;
+	border-left-color: #5FB878;
 }
 
 div[xm-select-skin='primary'] .xm-select-linkage li.xm-select-this span {

@@ -1,0 +1,106 @@
+body::-webkit-scrollbar {
+	display: none;
+}
+
+h2 {
+	font-weight: 600;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.data-panel,.long-data-panel {
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+.mini-data-panel {
+	padding-top: 5px;
+	text-align: center;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+.mini-data-panel:first-child {
+	border-bottom: #BBB 1px solid;
+}
+
+/* 设定数据板块的高度 */
+.data-panel>.layui-card-body {
+	height: 160px;
+}
+.long-data-panel>.layui-card-body {
+	height: 430px;
+}
+
+/* 长数据板块中的table表格，让其不超出板块 */
+.long-data-panel th {
+	background-color: white;
+  font-weight: 600;
+	text-align: center;
+}
+.long-data-panel td {
+	height: 30px;
+}
+
+/* 首页没有表格溢出 */
+.hidden-overflow {
+	max-height: 145px;
+  overflow: auto;
+}
+.hidden-overflow::-webkit-scrollbar {
+  display: none;
+}
+
+/* 大的数字，例如左列第一块上的总监控人数 */
+.big-number {
+	line-height: 56px;
+	font-size: 29px;
+}
+/* 中等的数字，例如中间列最上方的职业危害预警人数 */
+.medium-number {
+	font-size: 20px;
+}
+
+/* 字体颜色：红 黄 绿 */
+.fc-red {
+	color: #FF5722;
+}
+.fc-yellow {
+	color: #FFB800;
+}
+.fc-green {
+	color: #009688;
+}
+.fc-brown {
+	color: #663300;
+}
+/* 将layui-col-space5的底部margin修改为0 */
+.layui-col-space5 {
+	margin-bottom: 0;
+}
+
+/* 区域地图 */
+.area-map {
+	height: 646px;
+	text-align: center;
+	background-color: bisque;
+}
+.mine-map .layui-card-body {
+	height: 302px;
+}
+.map-legend {
+	height: 50px;
+	font-size: 16px;
+	border-radius: 8px;
+	box-shadow: none;
+	text-align: center;
+}
+.map-legend span{
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+.pear-container {
+	background-color: whitesmoke;
+	margin: 10px;
+}

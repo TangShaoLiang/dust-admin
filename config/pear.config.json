@@ -1,10 +1,10 @@
 {
 	"logo": {
 		"title": "Pear Admin",
-		"image": "admin/images/logo.png"
+		"image": "assetsimages/logo.png"
 	},
 	"menu": {
-		"data": "admin/data/menu.json",
+		"data": "assetsdata/menu.json",
 		"method": "GET",
 		"accordion": true,
 		"collapse": false,
@@ -21,7 +21,7 @@
 		"max": "30",
 		"index": {
 			"id": "10",
-			"href": "view/console/console3.html",
+			"href": "view/monitor/mineMonitor.html",
 			"title": "首页"
 		}
 	},
@@ -65,6 +65,6 @@
 		"footer": false
 	},
 	"header": {
-		"message": "admin/data/message.json"
+		"message": "assetsdata/message.json"
 	}
 }
