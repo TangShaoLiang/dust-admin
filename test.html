@@ -32,7 +32,8 @@
 									<div class="layui-row big-number">6</div>
 									<div class="layui-row">接尘超标预警</div>
 									<div class="layui-row big-number">0</div>
-								</div>
+									<button type="button" class="layui-btn layui- test-target">这是一个按钮</div>
+								</button>
 								<div class="layui-col-xs8 layui-col-md8 hidden-overflow">
 									<table class="layui-table" lay-size="sm">
 										<thead>
@@ -100,6 +101,19 @@
 					element = layui.element,
 					count = layui.count,
 					echarts = layui.echarts;
+
+				var url = 'https://q425426g11.wocp.fun';
+				$(document).ready(function(){
+					$(".test-target").click(function(){
+						console.log("你按下了按钮！")
+						$(".test-target").load("demo_test.txt")
+
+						$.get("https://q425426g11.wocp.fun/api/getUsers", {uname:"王梓"},function(data,status){
+							alert("数据: " + data.toString() + "\n状态: " + status);
+						});
+					});
+				});
+
 
 				var echartsHighRiskPersons = echarts.init(document.getElementById('echarts-high-risk-persons'), 'walden');
 				var optionHighRiskPersons = {
