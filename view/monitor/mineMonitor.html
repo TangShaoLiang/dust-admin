@@ -36,7 +36,7 @@
 												<th>预警状态</th>
 											</tr> 
 										</thead>
-										<tbody>
+										<tbody id="table-worker">
 											<tr>
 												<td>唐韶良</td>
 												<td>西</td>
@@ -81,7 +81,7 @@
 					<div class="layui-card data-panel dust-warning">
 						<div class="layui-card-header">高危人员统计</div>
 						<div class="layui-card-body">
-							<div id="echarts-people" style="height: 160px"></div>
+							<div id="echarts-worker" style="height: 160px"></div>
 						</div>
 					</div>
 				</div>
@@ -155,29 +155,24 @@
 										<thead>
 											<tr>
 												<th>监测点</th>
-												<th>工作面</th>
 												<th>预警项</th>
 											</tr> 
 										</thead>
-										<tbody>
+										<tbody id="table-warning">
 											<tr>
 												<td>KFCCTD_VME_50</td>
-												<td>西</td>
 												<td>风速</td>
 											</tr>
 											<tr>
 												<td>KFCCTD_VME_50</td>
-												<td>南</td>
 												<td>呼吸尘</td>
 											</tr>
 											<tr>
 												<td>KFCCTD_VME_50</td>
-												<td>东</td>
 												<td>温度</td>
 											</tr>
 											<tr>
 												<td>KFCCTD_VME_50</td>
-												<td>南</td>
 												<td>噪音</td>
 											</tr>
 										</tbody>
@@ -201,7 +196,7 @@
 							物理因素监测
 						</div>
 						<div class="layui-card-body">
-							<div id="echarts-element" style="height: 160px"></div>
+							<div id="echarts-envi" style="height: 160px"></div>
 						</div>
 					</div>
 
@@ -215,7 +210,26 @@
 		<!--</div>-->
 		<script src="../../component/layui/layui.js"></script>
 		<script src="../../component/pear/pear.js"></script>
+		<script type="module" src="../../data/init.js"></script>
 		<script>
+			// 我的代码
+			var url = 'https://q425426g11.wocp.fun'
+
+			// 数据
+			// 当前粉尘数据
+			var dustData = [0,0];
+			// 当前环境数据
+			var enviData = [0,0,0,0];
+			// 当前工人危险人数
+			var workerRiskData = [1,2,3];
+
+			// 历史数据
+			var dustList, breathDustList, tempList, humiList, windList, soundList = [0,0,0,0,0,0,0]
+
+			// 掘进面与采煤面的人数
+			var drivingWorker = 2, workingWorker = 4;
+
+
 			layui.use(['layer', 'echarts', 'element', 'count'], function() {
 				var $ = layui.jquery,
 					layer = layui.layer,
@@ -223,51 +237,33 @@
 					count = layui.count,
 					echarts = layui.echarts;
 
-				// 数字滚动动画，让数据从0逐渐变成440.34
-				count.up("value1", {
-					time: 4000,			// 用时
-					num: 440.34,		// 最终变成的数字
-					bit: 2,					// 看不懂
-					regulator: 50		// 
-				})
-
-				count.up("value2", {
-					time: 4000,
-					num: 236.30,
-					bit: 2,
-					regulator: 50
-				})
-
-				count.up("value3", {
-					time: 4000,
-					num: 634.43,
-					bit: 2,
-					regulator: 50
-				})
-
-				count.up("value4", {
-					time: 4000,
-					bit: 2,
-					num: 373.23,
-					regulator: 50
-				})
 
 
-				// 我的代码
+				// 初始化数据
+				window.onload = function(){
+					$.get(url+"/api/getUsers", {uname:"王梓"},function(data,status){
+						alert("数据: " + data.toString() + "\n状态: " + status);
+					})
+
+
+				}
+
+
+
 				// 人员实时分布（掘进面和采煤面）
 				// 掘进面
 				var echartsDriving = echarts.init(document.getElementById('echarts-driving'), 'walden');
 				var echartsWorking = echarts.init(document.getElementById('echarts-working'), 'walden');
 				var optionDriving = {
+					color: ['#795548','#fff'],
 					series: [
 						{
 							name: '掘进面人数统计',
 							type: 'pie',
 							radius: ['50%','60%'],
-							center: ['50%','50%'], 	// 偏移距离，默认50%,50%，即居中
 							label: {
 								position: 'center',
-								formatter: '{c}人',
+								formatter: drivingWorker+'人',
 								fontSize: 16,
 							},
 							itemStyle: {
@@ -275,24 +271,22 @@
 								borderColor: '#fff',
 								borderWidth: 2
 							},
-							data: [
-								{ value: 3, itemStyle: {color: '#795548'}},//#6D4C41
-								{ value: 1, itemStyle: {color: '#fff'}}
-							]
+							data: [drivingWorker,workingWorker]
 						}
 					]
         };
 				echartsDriving.setOption(optionDriving);
 				// 采煤面
 				var optionWorking = {
+					color: ['#6A5852','#fff'],
 					series: [
 						{
-							name: '掘进面人数统计',
+							name: '采煤面人数统计',
 							type: 'pie',
 							radius: ['50%','60%'],
 							label: {
 								position: 'center',
-								formatter: '{c}人',
+								formatter: workingWorker+'人',
 								fontSize: 16,
 							},
 							itemStyle: {
@@ -300,10 +294,7 @@
 								borderColor: '#fff',
 								borderWidth: 2
 							},
-							data: [
-								{ value: 3, itemStyle: {color: '#6A5852'}},
-								{ value: 1, itemStyle: {color: '#fff'}}
-							]
+							data: [workingWorker,drivingWorker]
 						}
 					]
         };
@@ -311,46 +302,42 @@
 
 
 				// 危险人员统计
-				var echartsPeople = echarts.init(document.getElementById('echarts-people'), 'walden');
-				var optionPeople = {
+				var echartsWorker = echarts.init(document.getElementById('echarts-worker'), 'walden');
+				var optionWorker = {
 					tooltip: {
 						trigger: 'item'
 					},
+					dataset:{
+						source: [
+							['安全','中危','高危'],
+							workerRiskData	// 危险工人数据列表
+						]
+					},
+					color: ['#009688', '#FFB800', '#FF5722'],
 					series: [
 						{
-							name: '危险人数统计',
-							type: 'pie',
-							radius: '80%',
+							type: 'pie', seriesLayoutBy: 'row', radius: '80%',
+							label:{ 
+								show: true, 
+								formatter: '{c}' 
+							}, 
 							itemStyle: {
 								borderColor: '#fff',
-								borderWidth: 2
-							},
-							data: [
-								{ value: 8, name: '安全', itemStyle: {color: '#009688'}},
-								{ value: 7, name: '中危', itemStyle: {color: '#FFB800'} },
-								{ value: 4, name: '高危', itemStyle: {color: '#FF5722'} }
-							],
-							emphasis: {
-								itemStyle: {
-									shadowBlur: 10,
-									shadowOffsetX: 0,
-									shadowColor: 'rgba(0, 0, 0, 0.5)'
-								}
+								borderWidth: 2,
 							}
 						}
 					]
         };
-				echartsPeople.setOption(optionPeople);
+				echartsWorker.setOption(optionWorker);
 
 				// 粉尘与呼吸尘监测
 				var echartsDust = echarts.init(document.getElementById('echarts-dust'), 'walden');
-				// const colorList = ["#9E87FF", '#73DDFF', '#fe9a8b', '#F56948', '#9E87FF']
 				var optionDust = {
-					tooltip: {
-						trigger: 'axis'
-					},
 					legend: {
 						data: ['粉尘', '呼吸尘']
+					},
+					tooltip: {
+						trigger: 'axis'
 					},
 					grid: {
 						left: '3%',
@@ -359,29 +346,18 @@
 						bottom: '0%',
 						containLabel: true
 					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30']
+					dataset:{
+						source: [
+							['dust'].concat(timeList),
+							['粉尘'].concat(dustList),
+							['呼吸尘'].concat(breathDustList)
+						]
 					},
-					yAxis: {
-						type: 'value'
-					},
+					xAxis: {type: 'category',gridIndex: 0, splitLine: {show:false}},
+					yAxis: {gridIndex: 0},
 					series: [
-						{
-							name: '粉尘',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#B37D4E'},
-							data: [220, 182, 191, 234, 290, 330, 310]
-						},
-						{
-							name: '呼吸尘',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#F3AD4E'},
-							data: [120, 132, 101, 134, 90, 230, 210]
-						}
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false, itemStyle: {color: '#B37D4E'}},
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false, itemStyle: {color: '#F3AD4E'}}
 					]
 				};
 				echartsDust.setOption(optionDust);
@@ -392,27 +368,26 @@
 					tooltip: {
 						trigger: 'item'
 					},
+					dataset:{
+						source: [
+							['温度','湿度','风速','噪声'],
+							enviData	// 环境数据列表
+						]
+					},
+					// 设置颜色
+					color: ['#984843', '#008FBF', '#EAC67A', '#637277'],
 					series: [
 						{
-							name: '危险人数统计',
-							type: 'pie',
-							radius: '80%',
+							type: 'pie', seriesLayoutBy: 'row', radius: '80%',
+							// 设置标签
+							label:{ 
+								show: true, 
+								formatter: '{c}' 
+							}, 
 							itemStyle: {
+								// 设置扇形的边框
 								borderColor: '#fff',
-								borderWidth: 2
-							},
-							data: [
-								{ value: 8, name: '温度', itemStyle: {color: '#984843'}},
-								{ value: 2, name: '湿度', itemStyle: {color: '#008FBF'}},
-								{ value: 1, name: '风速', itemStyle: {color: '#EAC67A'}},
-								{ value: 4, name: '噪声', itemStyle: {color: '#637277'}}
-							],
-							emphasis: {
-								itemStyle: {
-									shadowBlur: 10,
-									shadowOffsetX: 0,
-									shadowColor: 'rgba(0, 0, 0, 0.5)'
-								}
+								borderWidth: 2,
 							}
 						}
 					]
@@ -421,14 +396,12 @@
 
 
 				// 四项物理因素监测（温湿度、风速、噪声）
-				var echartsElement = echarts.init(document.getElementById('echarts-element'), 'walden');
-				var optionElement = {
+				var echartsEnvi = echarts.init(document.getElementById('echarts-envi'), 'walden');
+				var optionEnvi = {
 					tooltip: {
 						trigger: 'axis'
 					},
-					legend: {
-						data: ['温度', '湿度', '风速', '噪音']
-					},
+					legend: {show:true},
 					grid: {
 						left: '3%',
 						right: '4%',
@@ -436,55 +409,35 @@
 						bottom: '0%',
 						containLabel: true
 					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30']
+					color: ['#984843', '#008FBF', '#EAC67A', '#637277'],
+					dataset:{
+						source: [
+							['envi','10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30'],
+							['温度'].concat(tempList),
+							['湿度'].concat(humiList),
+							['风速'].concat(windList),
+							['噪声'].concat(soundList)
+						]
 					},
-					yAxis: {
-						type: 'value'
-					},
+					xAxis: {type: 'category',gridIndex: 0, splitLine: {show:false}},
+					yAxis: {gridIndex: 0},
 					series: [
-						{
-							name: '温度',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#984843'},
-							data: [120, 132, 101, 134, 90, 230, 210]
-						},
-						{
-							name: '湿度',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#008FBF'},
-							data: [220, 182, 191, 234, 290, 330, 310]
-						},
-						{
-							name: '风速',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#EAC67A'},
-							data: [150, 232, 201, 154, 190, 330, 410]
-						},
-						{
-							name: '噪音',
-							type: 'line',
-							showSymbol: false,
-							itemStyle: {color: '#637277'},
-							data: [320, 332, 301, 334, 390, 330, 320]
-						}
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false,lineStyle:{width:1}},
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false,lineStyle:{width:1}},
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false,lineStyle:{width:1}},
+						{type: 'line', seriesLayoutBy: 'row', showSymbol: false,lineStyle:{width:1}}
 					]
 				};
-				echartsElement.setOption(optionElement);
+				echartsEnvi.setOption(optionEnvi);
 
 				// 当屏幕尺寸变化时，让各个echarts图重新调整大小以适应屏幕尺寸的变化
 				window.onresize = function() {
 					echartsDriving.resize();
 					echartsWorking.resize();
-					echartsPeople.resize();
+					echartsWorker.resize();
 					echartsDust.resize();
 					echartsWarning.resize();
-					echartsElement.resize();
+					echartsEnvi.resize();
 				}
 			});
 		</script>
